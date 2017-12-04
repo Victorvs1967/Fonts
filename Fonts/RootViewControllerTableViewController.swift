@@ -19,10 +19,10 @@ class RootViewControllerTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    FamilyName = (UIFont.familyNames() as [String]).sorted()
-    let prefferedTableViewFont = UIFont.prefferedTableViewFont(forTextStyle: UIFontTextStyleHeadline)
+    familyNames = (UIFont.familyNames as [String]).sorted()
+    let prefferedTableViewFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
     cellPointSize = prefferedTableViewFont.pointSize
-    favoritesList = FavoritesList.sharedFavoritesList
+    favoritesList = FavoritesList.sharedFavoriteList
     tableView.estimatedRowHeight = cellPointSize
     
     // Uncomment the following line to preserve selection between presentations
