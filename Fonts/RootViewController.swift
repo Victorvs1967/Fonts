@@ -20,9 +20,10 @@ class RootViewController: UITableViewController {
     super.viewDidLoad()
     
     familyNames = (UIFont.familyNames as [String]).sorted()
-    let prefferedTableViewFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-    cellPointSize = prefferedTableViewFont.pointSize
     favoritesList = FavoritesList.sharedFavoriteList
+
+    let prefferedTableViewFont = UIFont.preferredFont(forTextStyle: .headline)
+    cellPointSize = prefferedTableViewFont.pointSize
     tableView.estimatedRowHeight = cellPointSize
     
     // Uncomment the following line to preserve selection between presentations
@@ -115,14 +116,25 @@ class RootViewController: UITableViewController {
    }
    */
   
-  /*
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    // Get the new view controller using segue.destinationViewController.
    // Pass the selected object to the new view controller.
+    let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+    let listVC = segue.destination as! FontListViewController
+    
+    if indexPath.section == 0 {
+      let familyName = familyNames[indexPath.row]
+      listVC.fontNames = (UIFont.fontNames(forFamilyName: familyName) as [String]).sorted()
+      listVC.navigationItem.title = familyName
+      listVC.showFavorites = false
+    } else {
+      listVC.fontNames = favoritesList.favorites
+      listVC.navigationItem.title = "Favorites"
+      listVC.showFavorites = true
+    }
    }
-   */
   
 }
