@@ -20,7 +20,7 @@ class FavoritesList: NSObject {
   }
   
   func addFavorite(fontName: String) {
-    if favorites.contains(fontName) {
+    if !favorites.contains(fontName) {
       favorites.append(fontName)
       saveFavorites()
     }
@@ -37,4 +37,10 @@ class FavoritesList: NSObject {
     defaults.synchronize()
   }
   
+  func moveItem(fromIndex from: Int, toIndex to: Int) {
+    let item = favorites[from]
+    favorites.remove(at: from)
+    favorites.insert(item, at: to)
+    saveFavorites()
+  }
 }

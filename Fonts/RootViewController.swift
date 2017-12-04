@@ -21,16 +21,11 @@ class RootViewController: UITableViewController {
     
     familyNames = (UIFont.familyNames as [String]).sorted()
     favoritesList = FavoritesList.sharedFavoriteList
-
+    
     let prefferedTableViewFont = UIFont.preferredFont(forTextStyle: .headline)
     cellPointSize = prefferedTableViewFont.pointSize
     tableView.estimatedRowHeight = cellPointSize
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +38,7 @@ class RootViewController: UITableViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  func fontForDispley(atIndecPath indexPath: IndexPath) -> UIFont? {
+  func fontForDisplay(atIndecPath indexPath: IndexPath) -> UIFont? {
     if indexPath.section == 0 {
       let familyName = familyNames[indexPath.row]
       let fontName = UIFont.fontNames(forFamilyName: familyName).first
@@ -72,7 +67,7 @@ class RootViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: RootViewController.familyCell, for: indexPath)
-      cell.textLabel?.font = fontForDispley(atIndecPath: indexPath)
+      cell.textLabel?.font = fontForDisplay(atIndecPath: indexPath)
       cell.textLabel?.text = familyNames[indexPath.row]
       cell.detailTextLabel?.text = familyNames[indexPath.row]
       return cell
@@ -81,47 +76,12 @@ class RootViewController: UITableViewController {
     }
   }
   
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
+  // MARK: - Navigation
   
-  /*
-   // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-   if editingStyle == .delete {
-   // Delete the row from the data source
-   tableView.deleteRows(at: [indexPath], with: .fade)
-   } else if editingStyle == .insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
-  
-  /*
-   // Override to support rearranging the table view.
-   override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-   
-   }
-   */
-  
-  /*
-   // Override to support conditional rearranging of the table view.
-   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the item to be re-orderable.
-   return true
-   }
-   */
-  
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
     let listVC = segue.destination as! FontListViewController
     
@@ -129,12 +89,12 @@ class RootViewController: UITableViewController {
       let familyName = familyNames[indexPath.row]
       listVC.fontNames = (UIFont.fontNames(forFamilyName: familyName) as [String]).sorted()
       listVC.navigationItem.title = familyName
-      listVC.showFavorites = false
+      listVC.showsFavorites = false
     } else {
       listVC.fontNames = favoritesList.favorites
       listVC.navigationItem.title = "Favorites"
-      listVC.showFavorites = true
+      listVC.showsFavorites = true
     }
-   }
+  }
   
 }
