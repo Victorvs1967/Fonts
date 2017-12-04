@@ -12,7 +12,7 @@
 		D33ED96D1FD473F4002DE883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33ED96C1FD473F4002DE883 /* Assets.xcassets */; };
 		D33ED9701FD473F4002DE883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33ED96E1FD473F4002DE883 /* LaunchScreen.storyboard */; };
 		D33ED9791FD48E7E002DE883 /* FavoritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33ED9781FD48E7E002DE883 /* FavoritesList.swift */; };
-		D33ED97B1FD49C88002DE883 /* RootViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33ED97A1FD49C88002DE883 /* RootViewControllerTableViewController.swift */; };
+		D33ED97B1FD49C88002DE883 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33ED97A1FD49C88002DE883 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		D33ED96F1FD473F4002DE883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33ED9711FD473F5002DE883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D33ED9781FD48E7E002DE883 /* FavoritesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesList.swift; sourceTree = "<group>"; };
-		D33ED97A1FD49C88002DE883 /* RootViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		D33ED97A1FD49C88002DE883 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 		D33ED9641FD473F4002DE883 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D33ED97A1FD49C88002DE883 /* RootViewControllerTableViewController.swift */,
+				D33ED97A1FD49C88002DE883 /* RootViewController.swift */,
 				D33ED9781FD48E7E002DE883 /* FavoritesList.swift */,
 				D33ED9691FD473F4002DE883 /* Main.storyboard */,
 				D33ED9711FD473F5002DE883 /* Info.plist */,
@@ -147,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D33ED97B1FD49C88002DE883 /* RootViewControllerTableViewController.swift in Sources */,
+				D33ED97B1FD49C88002DE883 /* RootViewController.swift in Sources */,
 				D33ED9791FD48E7E002DE883 /* FavoritesList.swift in Sources */,
 				D33ED9661FD473F4002DE883 /* AppDelegate.swift in Sources */,
 			);

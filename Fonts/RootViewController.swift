@@ -1,5 +1,5 @@
 //
-//  RootViewControllerTableViewController.swift
+//  RootViewController.swift
 //  Fonts
 //
 //  Created by Victor Smirnov on 03/12/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RootViewControllerTableViewController: UITableViewController {
+class RootViewController: UITableViewController {
   
   private var familyNames: [String]!
   private var cellPointSize: CGFloat!
@@ -64,15 +64,21 @@ class RootViewControllerTableViewController: UITableViewController {
     return section == 0 ? familyNames.count : 1
   }
   
-  /*
-   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-   let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-   
-   // Configure the cell...
-   
-   return cell
-   }
-   */
+  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return section == 0 ? "All Fonts Families" : "My Favorite Fonts"
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if indexPath.section == 0 {
+      let cell = tableView.dequeueReusableCell(withIdentifier: RootViewController.familyCell, for: indexPath)
+      cell.textLabel?.font = fontForDispley(atIndecPath: indexPath)
+      cell.textLabel?.text = familyNames[indexPath.row]
+      cell.detailTextLabel?.text = familyNames[indexPath.row]
+      return cell
+    } else {
+      return tableView.dequeueReusableCell(withIdentifier: RootViewController.favoritesCell, for: indexPath)
+    }
+  }
   
   /*
    // Override to support conditional editing of the table view.
