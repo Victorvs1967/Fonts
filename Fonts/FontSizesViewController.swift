@@ -1,5 +1,5 @@
 //
-//  FontListViewController.swift
+//  FontSizesViewController.swift
 //  Fonts
 //
 //  Created by Victor Smirnov on 04/12/2017.
@@ -8,51 +8,35 @@
 
 import UIKit
 
-class FontListViewController: UITableViewController {
+class FontSizesViewController: UITableViewController {
   
-  var fontNames: [String] = []
-  var showFavorites = false
-  private var cellPointSize: CGFloat!
-  private static let cellIdentifier = "FontName"
+  var font: UIFont!
+  private static let pointSizes: [CGFloat] = [
+    9, 10, 11, 12, 13, 14, 18, 24, 36, 48, 64, 72, 96 ,144
+  ]
+  private static let cellIdentifier = "FontNameAndSize"
+  
+  
+  func fontForDisplay(atIndexPath indexPath: IndexPath) -> UIFont {
+    let pointSize = FontSizesViewController.pointSizes[indexPath.row]
+    return font.withSize(pointSize)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let prefferedTableViewFont = UIFont.preferredFont(forTextStyle: .headline)
-    cellPointSize = prefferedTableViewFont.pointSize
-    tableView.estimatedRowHeight = cellPointSize
+    tableView.estimatedRowHeight = FontSizesViewController.pointSizes[0]
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    if showFavorites {
-      fontNames = FavoritesList.sharedFavoriteList.favorites
-      tableView.reloadData()
-    }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  func fontForDisplay(atIndexPath indexPath: IndexPath) -> UIFont {
-    let fontName = fontNames[indexPath.row]
-    return UIFont(name: fontName, size: cellPointSize)!
-  }
-  
-  // MARK: - Table view data source
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return fontNames.count
+    return FontSizesViewController.pointSizes.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: FontListViewController.cellIdentifier, for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: FontSizesViewController.cellIdentifier, for: indexPath)
     cell.textLabel?.font = fontForDisplay(atIndexPath: indexPath)
-    cell.textLabel?.text = fontNames[indexPath.row]
-    cell.detailTextLabel?.text = fontNames[indexPath.row]
+    cell.textLabel?.text = font.fontName
+    cell.detailTextLabel?.text = "\(FontSizesViewController.pointSizes[indexPath.row]) point"
     return cell
   }
   
@@ -91,18 +75,14 @@ class FontListViewController: UITableViewController {
    }
    */
   
+  /*
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    // Get the new view controller using segue.destinationViewController.
    // Pass the selected object to the new view controller.
-    let tableViewCell = sender as! UITableViewCell
-    let indexPath = tableView.indexPath(for: tableViewCell)!
-    let font = fontForDisplay(atIndexPath: indexPath)
-    let sizesVC = segue.destination as! FontSizesViewController
-    sizesVC.title = font.fontName
-    sizesVC.font = font
    }
+   */
   
 }

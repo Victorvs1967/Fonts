@@ -14,6 +14,7 @@
 		D33ED9791FD48E7E002DE883 /* FavoritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33ED9781FD48E7E002DE883 /* FavoritesList.swift */; };
 		D33ED97B1FD49C88002DE883 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33ED97A1FD49C88002DE883 /* RootViewController.swift */; };
 		D3B7224F1FD57B9D00B5BD5C /* FontListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7224E1FD57B9D00B5BD5C /* FontListViewController.swift */; };
+		D3B722511FD585E300B5BD5C /* FontSizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B722501FD585E300B5BD5C /* FontSizesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D33ED9781FD48E7E002DE883 /* FavoritesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesList.swift; sourceTree = "<group>"; };
 		D33ED97A1FD49C88002DE883 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D3B7224E1FD57B9D00B5BD5C /* FontListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewController.swift; sourceTree = "<group>"; };
+		D3B722501FD585E300B5BD5C /* FontSizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				D33ED97A1FD49C88002DE883 /* RootViewController.swift */,
 				D3B7224E1FD57B9D00B5BD5C /* FontListViewController.swift */,
+				D3B722501FD585E300B5BD5C /* FontSizesViewController.swift */,
 				D33ED9781FD48E7E002DE883 /* FavoritesList.swift */,
 				D33ED9691FD473F4002DE883 /* Main.storyboard */,
 				D33ED9711FD473F5002DE883 /* Info.plist */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B722511FD585E300B5BD5C /* FontSizesViewController.swift in Sources */,
 				D33ED97B1FD49C88002DE883 /* RootViewController.swift in Sources */,
 				D3B7224F1FD57B9D00B5BD5C /* FontListViewController.swift in Sources */,
 				D33ED9791FD48E7E002DE883 /* FavoritesList.swift in Sources */,
